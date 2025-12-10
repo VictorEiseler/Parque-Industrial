@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parque Industrial Corral de Bustos Ifflinger</title>
+<!-- Favicon -->
+<link rel="icon" href="isologo.png" type="image/png">
+
+<style>
+    body, h1, h2, h3, h4, p { margin: 0; padding: 0; }
+    body { font-family: 'Arial', sans-serif; background-color: #f0f4f8; color: #333; line-height: 1.6; font-size: 18px; }
+
+    /* Header moderno */
+    header {
+        background: linear-gradient(135deg, #007bff, #00a1ff);
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    header::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: rgba(255,255,255,0.05);
+        top: -50%;
+        left: -50%;
+        transform: rotate(45deg);
+    }
+
+    header .header-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        z-index: 1;
+    }
+
+    header img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: 4px solid white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        object-fit: cover;
+    }
+
+    header h1 {
+        font-size: 32px;
+        font-weight: bold;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+    }
+
+    header p {
+        font-size: 18px;
+        color: #e0f0ff;
+        font-style: italic;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+
+    /* Sección Quiénes Somos con fondo e overlay */
+    .who-we-are {
+        position: relative;
+        padding: 80px 20px;
+        margin-bottom: 40px;
+        text-align: center;
+        background: url('fondo-quienes-somos.jpg') no-repeat center center/cover;
+        color: white;
+    }
+
+    .who-we-are-overlay {
+        background: rgba(0, 123, 255, 0.6);
+        padding: 40px 20px;
+        border-radius: 25px;
+        max-width: 1000px;
+        margin: 0 auto;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .who-we-are h2 {
+        font-size: 42px;
+        color: #fff;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        margin-bottom: 20px;
+    }
+
+    .who-we-are p {
+        font-size: 20px;
+        line-height: 1.7;
+        color: #fff;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        margin-bottom: 15px;
+    }
+
+    /* Sección principal */
+    .main-section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+
+    .main-section h3 { font-size: 28px; color: #0056b3; margin: 10px 0; }
+
+    /* Contenedor de objetivos y beneficios */
+    .objectives-container, .benefits-container, .contact-container {
+        border-radius: 25px;
+        padding: 25px;
+        margin: 20px 0;
+        background: linear-gradient(135deg, #d9e8ff, #ffffff);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .objectives, .benefits {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .objective, .benefit, .contact-info {
+        background: linear-gradient(145deg, #ffffff, #d2e2fc);
+        flex: 1 1 45%;
+        min-width: 280px;
+        padding: 20px;
+        border-radius: 30px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+
+    .objective:hover, .benefit:hover, .contact-info:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        background: linear-gradient(145deg, #c7e0ff, #ffffff);
+    }
+
+    .objective h4, .benefit h4 { 
+        font-size: 24px; 
+        color: #007bff; 
+        margin-bottom: 10px; 
+        position: relative;
+    }
+
+    .objective p, .benefit p, .contact-info p { font-size: 16px; color: #333; }
+
+    .contact-info {
+        flex: 1 1 60%;
+        min-width: 300px;
+        text-align: left;
+        margin: 0 auto;
+        cursor: default;
+    }
+
+    .contact-info a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    /* Botones */
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1000px; 
+        margin: 40px auto;
+    }
+
+    .buttons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #007bff, #00a1ff);
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 15px;
+        height: 120px;
+        transition: all 0.3s;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .buttons a:hover {
+        background: linear-gradient(135deg, #0056b3, #007bff);
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    }
+
+    .buttons .wide {
+        grid-column: span 3;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Footer */
+    footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+        font-size: 16px;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .buttons { grid-template-columns: repeat(2, 1fr); max-width: 700px; }
+        .buttons .wide { grid-column: span 2; grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+        .main-section { padding: 30px 15px; max-width: 95%; }
+        .objective, .benefit, .contact-info { width: 100%; min-width: auto; }
+
+        .buttons { 
+            grid-template-columns: 1fr; 
+            max-width: 100%;
+            gap: 15px;
+        }
+        .buttons a { 
+            height: 100px; 
+            font-size: 18px; 
+            width: 100%;
+        }
+        .buttons .wide { 
+            grid-column: span 1; 
+            grid-template-columns: 1fr; 
+            gap: 15px; 
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <img src="isologo.png" alt="Logo Parque Industrial">
+        <h1>Parque Industrial Corral de Bustos Ifflinger</h1>
+    </div>
+</header>
+
+<!-- Quiénes Somos -->
+<section class="who-we-are">
+    <div class="who-we-are-overlay">
+        <h2>Quiénes Somos</h2>
+        <p>Parque Industrial de Corral de Bustos – Ifflinger, creado el 13 de octubre de 2011 por la Ordenanza Nº 1041 del Concejo Deliberante. Nuestro objetivo es impulsar el desarrollo económico de la ciudad, apoyando la instalación y expansión de industrias, comercios y servicios, y atrayendo nuevas empresas.</p>
+        <p>Gestionado por el Gobierno Municipal, contamos con la infraestructura y la personería jurídica necesarias para facilitar proyectos y servicios que fortalecen nuestra comunidad.</p>
+    </div>
+</section>
+
+<section class="main-section">
+
+    <h3>OBJETIVOS</h3>
+    <div class="objectives-container">
+        <div class="objectives">
+            <div class="objective">
+                <h4>Objetivo 1</h4>
+                <p>Concentrar actividades relacionadas entre sí que conforman una cadena lógica.</p>
+            </div>
+            <div class="objective">
+                <h4>Objetivo 2</h4>
+                <p>Insertar sus lugares de producción dentro de un sistema espacial que incluya los centros productivos y de consumo, sistemas de transporte y otras actividades conexas.</p>
+            </div>
+            <div class="objective">
+                <h4>Objetivo 3</h4>
+                <p>Promover la aplicación de tecnologías de avanzada, uso de mano de obra local y permanente innovación en productos.</p>
+            </div>
+        </div>
+    </div>
+
+    <h3>NUESTROS BENEFICIOS</h3>
+    <div class="benefits-container">
+        <div class="benefits">
+            <div class="benefit">
+                <h4>Servicios Públicos</h4>
+                <p>Acceso a gas natural, agua potable, energía eléctrica, salón de usos múltiples, cordón cuneta y mejorado de calles.</p>
+            </div>
+            <div class="benefit">
+                <h4>Seguridad</h4>
+                <p>Sistemas de seguridad, cerco olímpico, vigilancia y red contra incendios para proteger bienes y personal.</p>
+            </div>
+            <div class="benefit">
+                <h4>Acceso y Transporte</h4>
+                <p>Ubicación privilegiada sobre Ruta Provincial Nº 11, cerca de los principales corredores viales.</p>
+            </div>
+            <div class="benefit">
+                <h4>Beneficios Impositivos</h4>
+                <p>Beneficios Municipales, Provinciales y Nacionales por leyes de Promoción de Parques Industriales.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botones -->
+    <div class="buttons">
+        <a href="reglamento/reglamento.html">Reglamento</a>
+        <a href="galería/galeria.html">Galería</a>
+        <a href="loteo/loteo.html">Loteo</a>
+        <div class="wide">
+            <a href="ubicación/ubicacion.html">Ubicación</a>
+            <a href="contacto/contacto.html">Contacto</a>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <p>&copy; 2025 Parque Industrial Corral de Bustos Ifflinger. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
